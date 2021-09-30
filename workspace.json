@@ -54,7 +54,8 @@
         "serve": {
           "executor": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "function1:build"
+            "buildTarget": "function1:build",
+            "port": 9221
           }
         },
         "lint": {
@@ -105,7 +106,8 @@
         "serve": {
           "executor": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "function2:build"
+            "buildTarget": "function2:build",
+            "port": 9222
           }
         },
         "lint": {
@@ -156,7 +158,8 @@
         "serve": {
           "executor": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "function3:build"
+            "buildTarget": "function3:build",
+            "port": 9223
           }
         },
         "lint": {
