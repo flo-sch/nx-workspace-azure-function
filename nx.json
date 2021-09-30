@@ -26,5 +26,18 @@
       }
     ]
   },
-  "projects": {}
+  "projects": {
+    "core": {
+      "tags": []
+    },
+    "function1": {
+      "tags": []
+    },
+    "function2": {
+      "tags": []
+    },
+    "function3": {
+      "tags": []
+    }
+  }
 }
