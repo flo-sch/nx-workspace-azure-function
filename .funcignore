@@ -27,6 +27,7 @@ node_modules
 tmp
 tools
 babel.config.json
+example.settings.json
 package.json
 nx.json
 README.md

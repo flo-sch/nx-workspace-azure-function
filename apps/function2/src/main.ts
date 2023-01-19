@@ -1,22 +1,30 @@
-import {AzureFunction} from '@azure/functions';
+import {
+  app,
+  HttpRequest,
+  HttpResponse,
+  InvocationContext,
+} from '@azure/functions';
 import {core} from '@flosch/core';
 
-interface HttpResponse {
-  body: string;
-  headers: Record<string, string>;
-  status?: number;
-}
+export async function handler(
+  request: HttpRequest,
+  context: InvocationContext,
+): Promise<HttpResponse> {
+  context.debug('function2.handler', request.method, request.url);
 
-const httpTrigger: AzureFunction = async function (): Promise<HttpResponse> {
-  return {
-    body: JSON.stringify({
-      message: `Hello from Function 2 - ${core()}`,
-    }),
+  return new HttpResponse({
+    status: 200,
     headers: {
       'content-type': 'application/json',
     },
-    status: 200,
-  };
-};
+    jsonBody: {
+      message: `Hello from Function 2 - ${core()}`,
+    },
+  });
+}
 
-export default httpTrigger;
+app.http('function2', {
+  authLevel: 'anonymous',
+  methods: ['GET'],
+  handler,
+});
