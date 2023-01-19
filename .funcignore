@@ -16,6 +16,20 @@ local.settings.json
 
 README.md
 
+apps
+coverage
+dist/libs/plugins/azure-functions
+libs
+# The root node_modules in this monorepository contains a lot of dependencies that not required for Azure Functions (all devDependencies + frontend dependencies)
+# The custom local "azure-function" plugin provides a task to generate a package.json with required (runtime) dependencies for this function app
+# This is why we can now safely exclude the root manifests and modules
+node_modules
+tmp
+tools
+babel.config.json
+package.json
 nx.json
+README.md
+tsconfig.base.json
 workspace.json
-/tsconfig.base.json
+yarn.lock

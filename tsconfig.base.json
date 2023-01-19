@@ -17,6 +17,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@flosch/azure-functions": ["libs/plugins/azure-functions/src"],
       "@flosch/core": ["libs/core/src/index.ts"]
     }
   },

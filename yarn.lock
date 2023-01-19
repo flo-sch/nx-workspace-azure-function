@@ -1749,6 +1749,19 @@
     enquirer "~2.3.6"
     tslib "^2.3.0"
 
+"@nrwl/nx-plugin@^15.5.2":
+  version "15.5.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/nx-plugin/-/nx-plugin-15.5.2.tgz#5b3cc39397f95742fac4d50b1ffc351edeebfec4"
+  integrity sha512-bcjPpZHdRO+s+8f1gHNzQbMnLp3aZkbX3U87pdJr8qQpxFQZ19Kx6rpTHnq7OPNG+roRwk+u+YovgG7gBSBOvA==
+  dependencies:
+    "@nrwl/devkit" "15.5.2"
+    "@nrwl/jest" "15.5.2"
+    "@nrwl/js" "15.5.2"
+    "@nrwl/linter" "15.5.2"
+    dotenv "~10.0.0"
+    fs-extra "^11.1.0"
+    tslib "^2.3.0"
+
 "@nrwl/rollup@15.5.2":
   version "15.5.2"
   resolved "https://registry.yarnpkg.com/@nrwl/rollup/-/rollup-15.5.2.tgz#6c4413aab56c618e0316e03868215853d07d8f31"

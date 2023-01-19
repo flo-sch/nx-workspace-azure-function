@@ -5,6 +5,7 @@
     "core": "libs/core",
     "function1": "apps/function1",
     "function2": "apps/function2",
-    "function3": "apps/function3"
+    "function3": "apps/function3",
+    "plugin-azure-functions": "libs/plugins/azure-functions"
   }
 }

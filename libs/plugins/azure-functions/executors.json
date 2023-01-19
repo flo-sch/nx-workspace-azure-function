@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "executors": {
+    "build-all-functions": {
+      "implementation": "./src/executors/build-all-functions/executor",
+      "schema": "./src/executors/build-all-functions/schema.json",
+      "description": "Build all functions executor"
+    },
+    "generate-production-manifests": {
+      "implementation": "./src/executors/generate-production-manifests/executor",
+      "schema": "./src/executors/generate-production-manifests/schema.json",
+      "description": "Generate production manifests executor"
+    }
+  }
+}

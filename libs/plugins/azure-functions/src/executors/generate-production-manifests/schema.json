@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "outputCapture": "direct-nodejs",
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "Generate production manifests",
+  "description": "Generate a manifest with runtime dependencies for azure functions",
+  "type": "object",
+  "properties": {},
+  "required": []
+}

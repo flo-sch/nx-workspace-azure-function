@@ -1,0 +1,59 @@
+{
+  "name": "plugin-azure-functions",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/plugins/azure-functions/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/plugins/azure-functions",
+        "main": "libs/plugins/azure-functions/src/index.ts",
+        "tsConfig": "libs/plugins/azure-functions/tsconfig.lib.json",
+        "assets": [
+          "libs/plugins/azure-functions/*.md",
+          {
+            "input": "./libs/plugins/azure-functions/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/plugins/azure-functions/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/plugins/azure-functions",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/plugins/azure-functions",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/plugins/azure-functions/**/*.ts",
+          "libs/plugins/azure-functions/generators.json",
+          "libs/plugins/azure-functions/executors.json",
+          "libs/plugins/azure-functions/package.json"
+        ]
+      }
+    },
+    "build-all-functions": {
+      "executor": "@flosch/azure-functions:build-all-functions"
+    },
+    "generate-production-manifests": {
+      "executor": "@flosch/azure-functions:generate-production-manifests"
+    }
+  },
+  "tags": []
+}

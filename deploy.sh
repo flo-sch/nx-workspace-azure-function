@@ -28,7 +28,7 @@ echo "example script - not much happening at the moment"
 # 3- Deploy the app
 # Read more about Azure Function Core Tools: https://docs.microsoft.com/en-us/azure/azure-functions/functions-core-tools-reference?tabs=v2#func-azure-functionapp-publish
 # yarn nx run-many --all --target build --production
-# func azure functionapp publish $AZURE_FUNCTION_APP_NAME
+# func azure functionapp publish $AZURE_FUNCTION_APP_NAME --typescript
 
 # 4- To teardown the project, delete the entire resource group
 # az group delete --name $AZURE_RESOURCE_GROUP_NAME

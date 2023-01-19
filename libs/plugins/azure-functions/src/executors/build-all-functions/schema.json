@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "outputCapture": "direct-nodejs",
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "Build All Functions executor",
+  "description": "Executor running the build target in all recognized azure function applications",
+  "type": "object",
+  "properties": {},
+  "required": []
+}

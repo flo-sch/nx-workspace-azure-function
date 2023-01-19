@@ -1,0 +1,5 @@
+{
+  "name": "@flosch/azure-functions",
+  "version": "0.0.1",
+  "executors": "./executors.json"
+}
