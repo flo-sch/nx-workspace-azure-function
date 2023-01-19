@@ -10,7 +10,29 @@ Install the dependencies:
 yarn install
 ```
 
+And create a `local.settings.json` file containing:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true"
+  }
+}
+```
+
+If you prefer, you can replace the value of `AzureWebJobsStorage` by the connectionString of an Azure Storage Account instead: https://github.com/Azure/azure-functions-nodejs-library/wiki/Azure-Functions-Node.js-Framework-v4#setup
+
 ## Start
+
+If you defined `"AzureWebJobsStorage": "UseDevelopmentStorage=true"` in your local.settings.json file, you will need to run the local storage emulator (azurite) in a terminal.
+Azurite can be installed globally running `yarn global add azurite`.
+
+```bash
+azurite --location ./tmp --blobHost 127.0.0.1 --blobPort 10000
+```
 
 You can start the backend apps locally using the `start` script.
 This will compile all backend projects (with hot reload) with nx and run azure-function-core-tools server allowing you to invoke functions locally.

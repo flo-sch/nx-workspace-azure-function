@@ -1,41 +1,38 @@
-import {
-  runStubFunctionFromBindings,
-  createHttpTrigger,
-} from 'stub-azure-function-context';
+import {HttpRequest, InvocationContext} from '@azure/functions';
+import {handler} from './main';
 
-import {bindings} from '../../../function1/function.json';
-import httpTrigger from './main';
-
-async function mockRequest() {
-  return runStubFunctionFromBindings(
-    httpTrigger,
-    [
-      {
-        ...bindings[0],
-        data: createHttpTrigger(
-          'GET',
-          'http://example.com',
-          {},
-          {},
-          undefined,
-          {},
-        ),
-      },
-      bindings[1],
-    ],
-    new Date(),
-  );
+function createTestInvocationContext(): InvocationContext {
+  return new InvocationContext({
+    functionName: 'function1',
+    invocationId: 'mockedInvocationId',
+    logHandler: (level, ...args) => {
+      switch (level) {
+        case 'error':
+          console.error(...args);
+          break;
+        case 'warning':
+          console.warn(...args);
+          break;
+        default:
+          console.log(...args);
+      }
+    },
+  });
 }
 
 describe('apps > function1', () => {
   test('returns an http response', async () => {
-    const response = await mockRequest();
+    const request = new HttpRequest({
+      method: 'GET',
+      url: 'http://localhost:7071/api/function1',
+    });
+    const response = await handler(request, createTestInvocationContext());
 
     expect(response.status).toBe(200);
-    expect(response.headers).toMatchObject({
-      'content-type': 'application/json',
-    });
-    expect(JSON.parse(response.body)).toMatchObject({
+    expect(response.headers.get('content-type')).toEqual('application/json');
+
+    const body = await response.json();
+    expect(body).toMatchObject({
       message: expect.stringContaining('Hello from Function 1'),
     });
   });
