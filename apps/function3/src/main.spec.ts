@@ -1,9 +1,9 @@
 import {
   runStubFunctionFromBindings,
-  createHttpTrigger
+  createHttpTrigger,
 } from 'stub-azure-function-context';
 
-import { bindings } from '../../../function3/function.json';
+import {bindings} from '../../../function3/function.json';
 import httpTrigger from './main';
 
 async function mockRequest() {
@@ -12,11 +12,18 @@ async function mockRequest() {
     [
       {
         ...bindings[0],
-        data: createHttpTrigger('GET', 'http://example.com', {}, {}, undefined, {})
+        data: createHttpTrigger(
+          'GET',
+          'http://example.com',
+          {},
+          {},
+          undefined,
+          {},
+        ),
       },
       bindings[1],
     ],
-    new Date()
+    new Date(),
   );
 }
 

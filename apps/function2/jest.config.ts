@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'function3',
+/* eslint-disable */
+export default {
+  displayName: 'function2',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +12,5 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/function3',
+  coverageDirectory: '../../coverage/apps/function2',
 };

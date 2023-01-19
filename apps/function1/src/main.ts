@@ -1,5 +1,5 @@
-import { AzureFunction } from '@azure/functions';
-import { core } from '@flosch/core';
+import {AzureFunction} from '@azure/functions';
+import {core} from '@flosch/core';
 
 interface HttpResponse {
   body: string;
